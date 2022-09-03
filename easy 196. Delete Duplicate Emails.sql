@@ -31,3 +31,9 @@
 #  +----+------------------+
 #  Explanation: john@example.com is repeated two times. We keep the row with the smallest Id = 1.
 
+
+DELETE p 
+FROM Person as p, 
+    Person as d
+WHERE p.email = d.email 
+    AND p.id > d.id
