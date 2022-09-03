@@ -56,6 +56,28 @@
 #  The name of employee 1 is missing.
 #  The salary of employee 2 is missing.
 
+
+CREATE TABLE Employees(
+  employee_id int NOT NULL,
+  name varchar(255)
+);
+
+CREATE TABLE Salaries(
+  employee_id int,
+  salary varchar(255)
+  );
+  
+INSERT INTO Employees(employee_id, name) VALUES
+  (2, 'Crew'),
+  (4, 'Haven'),
+  (5, 'Kristian');
+  
+INSERT INTO Salaries(employee_id, salary) VALUES
+  (5, 76071),
+  (1, 22517),
+  (4, 63539);
+  
+
 SELECT s.employee_id AS employee_id
 FROM Employees AS e 
   RIGHT JOIN Salaries AS s
