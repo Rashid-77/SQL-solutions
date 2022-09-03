@@ -55,3 +55,19 @@
 #  Employees 1, 2, 4, and 5 are working at this company.
 #  The name of employee 1 is missing.
 #  The salary of employee 2 is missing.
+
+SELECT s.employee_id AS employee_id
+FROM Employees AS e 
+  RIGHT JOIN Salaries AS s
+  ON s.employee_id  = e.employee_id 
+WHERE e.employee_id IS NULL
+
+UNION
+
+SELECT e.employee_id AS employee_id
+FROM Employees AS e 
+  LEFT JOIN Salaries AS s
+  ON s.employee_id  = e.employee_id 
+WHERE s.employee_id IS NULL
+
+ORDER BY employee_id
