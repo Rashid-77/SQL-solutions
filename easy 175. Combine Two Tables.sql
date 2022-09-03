@@ -52,3 +52,33 @@
 #  There is no address in the address table for the personId = 1 so we return null in their city and state.
 #  addressId = 1 contains information about the address of personId = 2.
 
+CREATE TABLE Person(
+  personId int NOT NULL,
+  lastName varchar(255),
+  firstName varchar(255)
+);
+
+CREATE TABLE Address(
+  personId int NOT NULL,
+  addressId int NOT NULL,
+  city varchar(255),
+  state varchar(255)
+  );
+  
+INSERT INTO Person(personId, lastName, firstName) VALUES
+  (1, 'Wang', 'Allen'),
+  (2, 'Alice', 'Bob');
+  
+INSERT INTO Address(addressId, personId, city, state) VALUES
+  (1, 2, 'New York City', 'New York'),
+  (2, 3, 'Leetcode', 'California');
+  
+  
+SELECT
+  firstName, 
+  lastName,
+  city,
+  state
+FROM person as p
+  LEFT JOIN Address as a
+  ON p.personId = a.personId
