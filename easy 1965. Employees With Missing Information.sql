@@ -64,7 +64,7 @@ CREATE TABLE Employees(
 
 CREATE TABLE Salaries(
   employee_id int,
-  salary varchar(255)
+  salary int
   );
   
 INSERT INTO Employees(employee_id, name) VALUES
