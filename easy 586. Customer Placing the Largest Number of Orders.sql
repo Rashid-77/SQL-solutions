@@ -36,3 +36,28 @@
 #  Follow up: What if more than one customer has the largest number of orders, can you find all the customer_number in this case?
 
 
+SELECT
+    customer_number
+FROM orders
+GROUP BY customer_number
+ORDER BY COUNT(*) DESC
+LIMIT 1
+
+
+# What if more than one customer have the largest number of orders, can you find all the customer_number in this case?
+# 1. Find the number of the largest count on order number
+# 2. Select the customer who has same number of order as the largest count on order number
+
+SELECT customer_number
+FROM orders
+Group BY customer_number
+HAVING  count(order_number) = 
+(
+  SELECT max(numOfOrder)
+  FROM
+    (
+      SELECT customer_number, count(order_number) as numOfOrder
+      FROM orders
+      Group By customer_number
+    ) as temp
+)
