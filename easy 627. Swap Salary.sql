@@ -42,3 +42,5 @@
 #  (2, B) and (4, D) were changed from 'f' to 'm'.
 
 
+UPDATE Salary
+SET sex = IF (sex = "m", "f", "m");
